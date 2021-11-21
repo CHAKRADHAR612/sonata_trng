@@ -1,0 +1,29 @@
+cronjob,solr and smartedit:
+
+what is a cronjob?
+to compute a task at a specific time
+
+the purpose of cronjob is to execute specific business requirement on a specified interval
+
+the interval can be event based or time based
+
+a job to clean some files
+
+are cronjobs and jobs both same?
+from technical point of view it is not same
+
+execute a work is a job
+cronjob is an instance of a job which starts executing it
+
+what is a trigger?
+something of a task that executes periodically
+work of the trigger is to execute the cronjobs periodically
+
+it is the trigger that makes the cronjob execute periodically
+
+job is the definition of the work
+cronjob is the execution of the work
+trigger is the work at which the cronjob has to execute
+
+what is service layer job?
+a job where we assign our custom business logic

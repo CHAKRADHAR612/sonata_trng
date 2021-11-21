@@ -1,0 +1,31 @@
+synchronization:
+replicating or cloning the catalog of data from version A to version B
+
+types of catalogs:
+catalog,
+content catalog,
+classification catalog - classification features
+there is no such thing as product catalog it is just a naming convention
+
+two types of synchronization:
+single threaded(not recommended in project)
+multi threaded(lot of data so best option)
+
+using catalog version diff we can understand what all things are still not in sync
+
+multi threaded means more than one thread to have faster sync
+
+in the edit configuration of the synchronization cron job u can select the things that you want to sync and deselect the others
+
+scope of a job restriction is only within that particular job
+
+smartedit:
+not a new feature,liveEdit adddon(in the older versions)
+
+newer version of an existing feature
+
+one common userid is shared or separate userId's but not admin and nimda
+
+if u don't see the basestore in smartedit then in the content catalog u have to assign yourself to the permissions section in content catalog 
+
+navigation management is where all the navigation that u create reside

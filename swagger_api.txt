@@ -1,0 +1,9 @@
+Swagger API annotations:
+
+@API:
+to mark a class that has to be included by swagger-core for using apis from that controller
+
+@APIOperation:
+this annotation helps in describing the restAPI like what it does and all
+parameters:
+nickname(String),value(String),notes(String)

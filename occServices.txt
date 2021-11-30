@@ -1,0 +1,89 @@
+Facades:
+facade returns a DTO
+facade is situated between the presentation layer and  service layer
+
+presentation layer calls the spring controller
+facade will return the DTO(get model from service and convert it into DTO)
+create DTO object and populate the dto from the model to DTO
+get from Model and set to DTO
+
+commerce services provides complete B2C services
+
+using commerce services we can extend the product type and inject new attributes without touching the product's itemtype
+
+now the facade knows only the attributes mentioned in the items.xml
+
+so inorder to get the injected attributes we have to inject them to facades as well
+
+inorder to create a DTO object we first need a class
+so inorder to create a class we define the bean in beans.xml(commerceFacades)
+<bean class="">
+<property name="id" type="Integer"/>
+</bean>
+
+so to add the 2 attributes we use the beans.xml add the 2 attributes as a property to our productData bean
+service layer returns the Model
+DAO returns the Model
+
+populator:
+10 data will be mapped from model to dto
+
+conversion process:
+converters and populators
+converter will create the DTO object where source the model and target is the dto
+
+populator will set the values of dto object
+
+for populator we need to define in a class
+whereas for converter we don't have to create any class
+but can define the bean in spring.xml
+
+modifying populator:
+commerceservices-spring.xml
+
+
+occ_webservices:
+2 different systems
+
+no products in 1 hybris system but want to upload products from a different system
+
+to establish a connection between two systems we use webservices
+
+webservices is an information exchange system which is used to interact between two different applications
+
+REST Webservices
+
+in hybris we have REST webservices
+
+OCC - omni commerce connect
+
+can use across all platforms
+
+commerce means - retrieving cart,ordering
+
+commerce webservices
+
+REST interface
+
+CRUD - create,Read,Update,Delete
+
+we use ycommercewebservices(OOTB)
+
+there are already services pre loaded
+
+v2 is the default version we use now
+
+stateful means performing action -customer data will be stored and session is preserved
+
+stateless means for every request a new session is created
+
+external services are done through occ
+commerce-driven restful webservices
+
+we use restful webservices
+
+key facts:
+based on spring mvc
+xml and JSON response representation
+OAuth2
+supports versioning

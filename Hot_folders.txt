@@ -1,0 +1,81 @@
+Hot Folders:
+allows to integrzte files in SAP commerce quickly and efficiently
+cloud hot folders replaces the classic hot folders and azure storage replaces local or shared repositories
+Blob stands for binary large object
+blob includes objects such as images and multimedia files
+
+prices keeps on changing in actual website
+
+this is happening using hot folders
+
+in csv file we give comma separated values
+
+to set price for one product
+01234,eur,32
+
+hot folders are used to import and feed data into hybris
+
+hot folders are present in hybris/data/acceleratorservices/..
+
+hybris will automatically imports the data present in the hot folders
+
+hot folder is based on spring integration framework
+
+third party will put his files in hot folder location using SFTP protocol and hybris imports them
+
+we put the csv file in the hot folder
+then the csv file is converted to impex file(while converting we specify the configuration like the headers for the impex command)
+ex:
+
+01234,eur,32
+
+the above data is mentioned in the csv file, so now we have to configure the header for our data in our code
+
+and the , will be replaced with ;
+
+finally from impex the data is inputted to database
+
+in hot-folder-xml's will be created when we create the extensions
+
+so no need to create them externally
+
+in hot-folder-store-apparel.xml:
+
+<bean id="baseDirectoryApparel" class="java.lang.String">
+	<constructor-arg value="#{baseDirectory}/${tenantId}/apparel"/></bean>
+
+in the above code baseDirectory is the path till import
+and tenantId is the master and apparel is the following folder name
+baseDirectory: we have to specify it in the configuration file
+
+this is given in order to identify the hot folder that is where all the csv files are placed
+
+how many times should we scan for files:
+that is defined in the following line:
+<file:inbound-channel-adapter id="batchFilesApparel" directory="#{baseDirectoryApparel}" filename-regex="^(.*)-(\d+)\.csv"  (ex:aman-001.csv)
+comparator="fileOrderComparator">
+<int:poller fixed-rate="1000"/>
+</file:inbound-channel-adapter>
+
+fileOrderComparator is where we give which file to be picked up first
+
+then we specify the header setup task like what are the macros we are using for the impex
+
+<file:outbound-gateway request-channel="batchFilesMetro" reply-channel="batchFilesMetroProc"
+                           directory="#{baseDirectoryMetro}/processing" delete-source-files="true" />
+    <int:service-activator input-channel="batchFilesMetroProc" output-channel="batchFilesHeaderInit" ref="metroHeaderSetupTask"
+                           method="execute" />
+
+    <bean id="metroHeaderSetupTask" class="de.hybris.platform.acceleratorservices.dataimport.batch.task.HeaderSetupTask">
+        <property name="catalog" value="metroProductCatalog" />
+        <property name="net" value="true" />
+        <property name="storeBaseDirectory" ref="baseDirectoryMetro" />
+    </bean>
+
+and we also specify where the files should go once the sniffing starts(here we gave processing folder)
+
+in the converter bean(where the data from csv is converted to impex) we give the ref to the bean where we define the impex header code
+
++0 means the first column must not be empty
+
+in metrocore-spring.xml we specify the location of the hot-folder.xml files

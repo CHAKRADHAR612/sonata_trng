@@ -1,0 +1,37 @@
+local testing
+
+one functionality
+
+after merge code can be conflicted
+
+qa
+
+A -> branch
+
+B -> branch
+
+force update
+
+qa prod -> QA user acceptance
+preprod
+postprod
+
+devenv lo deploy
+
+dev lo test
+
+3months dev
+
+develop to QA
+
+QA test,client UAT(user acceptance test)
+
+preprod - dry run
+
+prod - 
+
+which branch to push
+
+rohit qa app
+
+cc app ,customer app

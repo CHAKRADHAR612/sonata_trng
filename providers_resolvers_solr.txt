@@ -1,0 +1,25 @@
+providers and resolvers in hybris:
+
+when to use providers and resolvers:
+both are more or less same
+
+solr is used for searching
+
+providers in hybris:
+implements fieldValueProvider or FieldNameProvider
+overrides getFieldValue or getFieldName methods
+returns the value of the field we want to index
+
+the value resolvers are a more eficient replacement for the current value providers
+
+groups index properties using same value provider
+
+extends AbstractValueResolver
+
+overrides addFieldValues method
+
+both are used to send data to solr
+
+provider - when we need to send some data to solr after manipulating it instead of directly sending the value from DB
+
+resolver - when we need to change the local context then use resolver

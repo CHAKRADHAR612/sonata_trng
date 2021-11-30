@@ -1,0 +1,30 @@
+28 to 30 stores
+
+stores as distribution centers
+
+two applications
+1.dealing with customer (customer app)
+2.cc app (sales agents to shop and get their order)
+
+centers will have cc's 
+
+metro business model is a b2b model
+segments:
+1.trader(small kirana shop)
+2.oreca(hotel and restaurants)
+3.business units(FCO)
+
+within these three cc agents will be allocated
+
+2019
+sept 2020
+
+legacy system MCRM
+
+tracking orders
+
+hybris system
+
+MCRM:
+customer resource model
+
